@@ -31,7 +31,7 @@ class Component(object):
     
     #Dont touch first it's to differentiate betwwen the recursive calls and the user asking for the costs
     #Additive stops it from clearing the "rawNeeded" list after printing the results
-    def rawCosts(self,n: int,additive = False,first = True) -> None:
+    def rawCosts(self,n: int,first = True) -> None:
         """
         Calculates the costs of the "n" amnount of the component in terms of the
         lowest crafting component, raw resources. Prints the results to the console
@@ -61,14 +61,12 @@ class Component(object):
         else:
             for x in self.cost: 
                 #Recursive cancer that calculates the stuff
-                loadedComps[str(x)].rawCosts(ceil(self.cost[x]/self.result*n*self.modifier*tables[self.table]),False,False)
+                loadedComps[str(x)].rawCosts(ceil(self.cost[x]/self.result*n*self.modifier*tables[self.table]),False)
         
         if first:
-            print("Calcs Complete") 
-            print(rawNeeded)
-            if not additive:
-                rawNeeded.clear() #Print in console to manually clear results
-    
+            return rawNeeded
+        
+            
     def targetedCosts(self,n: int,stop: list,additive = False,first = True) -> None:
         """
         Works similar to rawCosts but stop is used to defined the end components
@@ -94,10 +92,8 @@ class Component(object):
                 loadedComps[str(x)].targetedCosts(ceil(self.cost[x]/self.result*n*self.modifier*tables[self.table]),stop,False,False)
         
         if first:
-            print("Calcs Complete")
-            print(rawNeeded)
-            if not additive:
-                rawNeeded.clear() #Print in console to manually clear results        
+            return rawNeeded
+            
 
 
 def loadComps():
