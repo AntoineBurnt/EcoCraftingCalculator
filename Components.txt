@@ -1,0 +1,60 @@
+iron bars/1/{"end":1}/0/0/0/1/test/1
+iron gear/1/{"iron bars": 1}/0/0/0/1/shaper/0
+iron plate/1/{"iron bars": 1}/0/0/0/1/screwpress/0
+iron axle/1/{"iron bars":2}/0/0/0/1/lathe/0
+screws/4/{"iron bars":1}/0/0/0/1/lathe/0
+gearbox/1/{"iron bars": 2,"iron gear": 6}/0/0/0/1/shaper/0
+heat sink/1/{"copper bars": 8}/0/0/0/1/shaper/0
+iron piston/1/{"iron bars": 2,"iron pipe" : 2}/0/0/0/1/screwpress/0
+iron pipe/1/{"iron bars": 2}/0/0/0/1/anvil/0
+iron wheel/1/{"iron bars": 4}/0/0/0/1/test/0
+boiler/1/{"iron plate": 15,"screws":10}/0/0/0/1/machinist/0
+portable steam engine/1/{"iron gear": 12,"boiler": 3,"iron plate": 12,"screws": 18,"iron piston": 8}/0/0/0/1/machinist/0
+steam engine/1/{"iron piston":12,"screws":30,"iron plate":24,"boiler":6,"iron gear":16}/0/0/0/1/machinist/0
+assembly line/1/{"screws":6,"iron bars":6,"iron gear":6,"portable steam engine":1}/0/0/0/1/machinist/0
+steam truck/1/{"iron plate":12,"iron pipe":8,"screws":24,"portable steam engine":1,"iron wheel":4,"iron axle":1}/0/0/0/1/machinist/0
+electric water pump/1/{"iron bars":8,"iron pipe":12}/0/0/0/1/test/0
+engineering reasearch paper modern/1/{"iron gear":20,"iron plate":8,"iron axle":8}/0/0/0/1/test/0
+bricks/1/{"end":1}/0/0/0/1/test/1
+oil refinery/1/{"iron gear":24,"iron bars":16,"bricks":12}/0/0/0/1/test/0
+pump jack/1/{"iron piston":8,"gearbox":4,"reinforced concrete":12}/0/0/0/1/test/0
+reinforced concrete/1/{"end":1}/0/0/0/1/test/1
+skidsteer/1/{"gearbox": 4,"cellulose fibers":8,"steel plate":16,"advanced combustion engine":1,"rubber wheel":4,"radiator":2,"steel axle":1}/0/0/0/1/robotic assembly line/0
+steel plate/1/{"steel bars": 3}/0/0/0/1/stamping press/0
+steel bars/1/{"iron bars": 2,"quicklime":1,"coal":1}/0/0/0/1/test/1
+quicklime/1/{"crushed limestone": 1}/0/0/0/1/test/1
+coal/1/{"you mine it": 1}/0/0/0/1/test/1
+combustion engine/1/{"iron piston": 6,"gearbox":4,"iron plate":12,"rivets":8}/0/0/0/1/elec machinist/0
+rivets/3/{"steel bars": 1}/0/0/0/1/anvil/0
+plastic/1/{"end": 1}/0/0/0/1/refinery/1
+fiberglass/1/{"plastic": 4,"glass":3}/0/0/0/1/elec assembly/0
+epoxy/1/{"end": 1}/0/0/0/1/refinery/1
+substrate/1/{"epoxy": 4,"fiberglass":4}/0/0/0/1/elec assembly/0
+gold flakes/4/{"gold bars": 2}/0/0/0/1/elec assembly/0
+gold bars/1/{"end": 1}/0/0/0/1/test/1
+copper wiring/2/{"copper bars": 4}/0/0/0/1/elec machinist/0
+copper bars/1/{"end": 1}/0/0/0/1/test/1
+gold wiring/2/{"gold bars": 4}/0/0/0/1/elec machinist/0
+rubber wheel/1/{"steel bars": 4,"synthetic rubber":8}/0/0/0/1/elec machinist/0
+synthetic rubber/1/{"end": 1}/0/0/0/1/refinery/1
+servo/1/{"fiberglass": 5,"basic circuit":2}/0/0/0/1/elec assembly/0
+valve/1/{"steel gearbox": 1,"steel plate":4,"steel pipe":4}/0/0/0/1/elec machinist/0
+steel pipe/1/{"steel bars": 2}/0/0/0/1/test/0
+steel gearbox/1/{"steel bars": 8,"steel gear":4}/0/0/0/1/planer/0
+steel gear/1/{"steel bars": 2,"epoxy":1}/0/0/0/1/planer/0
+basic circuit/1/{"substrate": 2,"gold flakes":10,"copper wiring": 6}/0/0/0/1/elec assembly/0
+cement/1/{"end": 1}/0/0/0/1/test/1
+robotic assembly line/1/{"steel bars": 30,"servo":12,"electric motor":5,"cement":30}/0/0/0/1/elec assembly/0
+electric motor/1/{"steel bars": 8,"copper wiring":10,"basic circuit":4}/0/0/0/1/elec machinist/0
+radiator/1/{"heat sink": 4,"copper wiring": 8}/0/0/0/1/stamping press/0
+steel axle/1/{"steel bars": 4,"epoxy":3}/0/0/0/1/elec lathe/0
+advanced circuit/1/{"copper wiring": 4,"gold wiring":4,"gold flakes":10,"substrate":2}/0/0/0/1/elec assembly/0
+advanced combustion engine/1/{"steel plate":16,"rivets":12,"iron piston":6,"valve":6,"servo":6,"advanced circuit":6,"radiator":3}/0/0/0/1/robotic assembly line/0
+cellulose fibers/1/{"tbd": 1}/0/0/0/1/test/1
+froth floatation cell/1/{"electric motor": 1,"advanced circuit":10,"steel pipe":20,"steel plate":15}/0/0/0/1/test/0
+sensor based belt sorter/1/{"electric motor": 1,"basic circuit":5,"advanced circuit":5,"rivets":16,"steel gearbox":5,"steel plate":10}/0/0/0/1/test/0
+glass/1/{"tbd": 1}/0/0/0/1/test/1
+wood cart/1/{"hewn logs": 4, "wood boards":8,"wooden wheels":2}/0/0/0/1/wainwright/0
+wood boards/1/{"hewn logs":1}/0/0/0/1/workbench/0
+wooden wheels/1/{"hewn logs":4}/0/0/0/1/wainwright/0
+hewn logs/1/{"end":1}/0/0/0/1/test/1
