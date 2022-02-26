@@ -2,6 +2,7 @@ loadedComps = {}
 Tables = {}
 # name:object
 rawNeeded = {}
+tablesNeeded = set()
 # name:amount
 tables = {"workbench": 0, "carpentry":0,"masonry":0,"sawmill":0,"kiln":0,"cementkiln":0,"machinist":0,"screwpress":0,"wainwright":0,"anvil":0,"robotic assembly line":0,"test":0,"shaper":0,"lathe":0,"assembly line":0,"elec machinist":0,"stamping press":0,"planer":0,"elec assembly":0,"elec lathe":0,"refinery":0 }
 # name: modifer
@@ -32,7 +33,7 @@ class Component(object):
     
     #Dont touch first it's to differentiate betwwen the recursive calls and the user asking for the costs
     #Additive stops it from clearing the "rawNeeded" list after printing the results
-    def rawCosts(self,n: int,additive = False,first = True) -> dict:
+    def rawCosts(self,n: int,additive = False,first = True) -> dict and set:
         """
         Calculates the costs of the "n" amnount of the component in terms of the
         lowest crafting component, raw resources. Prints the results to the console
@@ -56,6 +57,7 @@ class Component(object):
         Calcs Complete
         {'iron bars': 1654}
         """
+        tablesNeeded.add(self.table)
         isSpecialty = Tables[self.table].checkCalType(self.calorietype)
         if self.isEnd:
             rawNeeded[self.name] = n + rawNeeded.get(self.name,0)
@@ -63,13 +65,16 @@ class Component(object):
             for x in self.cost: 
                 #Recursive cancer that calculates the stuff
                 loadedComps[str(x)].rawCosts(ceil(self.cost[x]/self.result*n*self.modifier*(1-(Tables[self.table].upgradeMod + 0.05*int(isSpecialty)))),False,False)
+        
         tempRaw = dict(rawNeeded)
+        tempTables = set(tablesNeeded)
         if first:
             if not additive:
+                tablesNeeded.clear()
                 rawNeeded.clear() #Print in console to manually clear results
-        return tempRaw
+        return tempRaw, tempTables
     
-    def targetedCosts(self,n: int,stop: list,additive = False,first = True) -> dict:
+    def targetedCosts(self,n: int,stop: list,additive = False,first = True) -> dict and set:
         """
         Works similar to rawCosts but 'stop' is used to defined the end components
         instead of using the lowest one.
@@ -78,6 +83,7 @@ class Component(object):
         Calcs Complete
         {'iron bars': 20, 'iron gear': 24, 'cellulose fibers': 8, 'steel plate': 56, 'steel bars': 68, 'iron pipe': 12, 'steel gearbox': 6, 'fiberglass': 174, 'epoxy': 144, 'gold bars': 138, 'copper bars': 432, 'synthetic rubber': 32, 'steel axle': 1}
         """
+        tablesNeeded.add(self.table)
         isSpecialty = Tables[self.table].checkCalType(self.calorietype)
         condition = False
         for x in stop:
@@ -94,12 +100,14 @@ class Component(object):
                 #Recursive cancer that calculates the stuff
                 loadedComps[str(x)].targetedCosts(ceil(self.cost[x]/self.result*n*self.modifier*(1-(Tables[self.table].upgradeMod + 0.05*isSpecialty))),stop,False,False)
         
+        tempTables = set(tablesNeeded)
         tempRaw = dict(rawNeeded)
         if first:
             if not additive:
+                tablesNeeded.clear()
                 rawNeeded.clear() #Print in console to manually clear results
-        return tempRaw
-                
+        return tempRaw, tempTables
+    
 class Table(object):
     def __init__(self,name: str,upgradeMod: float ,calType: str) ->  None:
         self.name = name
