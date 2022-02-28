@@ -23,7 +23,7 @@ def getTargetedCost(*args):
     try:
         recipe_name = str(recipe.get()).lower()
         value = float(number.get())
-        targetlist = targetitemsdict[targetlbox.curselection()]
+        targetlist = targetitemsLIST[targetlbox.curselection()[0]]
         cost.set(ut.dictTotext(ecc.loadedComps[recipe_name].targetedCosts(value,targetlist)))
         ecc.rawNeeded.clear()
     except (ValueError, KeyError):
@@ -31,13 +31,19 @@ def getTargetedCost(*args):
 
 def openUpgradeDialog(*args):
     try:
-        pass
+        T = Toplevel(root)
+
     except:
         pass
 
 def openTargetItemsDialog(*args):
     try:
-        pass
+        T = Toplevel(root)
+        T.grid(column=0,row=0,sticky=(N,S,E,W))
+        ttk.Label(T,text="Target Items").grid(column=1,row=1)
+        targetitem_entry_var = StringVar()
+        targetitem_entry = ttk.Entry(T,textvariable=targetitem_entry_var)
+        targetitems2 = targetitem_entry_var
     except:
         pass
 
@@ -45,7 +51,7 @@ def openTargetItemsDialog(*args):
 targetitems1 = ["iron gear","screws","iron pipe","iron wheel","iron axle","fiberglass","steel plate","steel gear","steel gearbox","steel axle"]
 targetitems2 = []
 targetitems3 = []
-targetitemsdict = {"Target Items 1":targetitems1,"Target Items 2":targetitems2,"Target Items 3":targetitems3}
+targetitemsLIST = [targetitems1,targetitems2,targetitems3]
 
 #main root stuff
 root = Tk()
@@ -96,7 +102,8 @@ ttk.Label(controlframe, text="Target Filter").grid(column=4, row=1, sticky=(S))
 #target list
 targets = ["Target Items 1","Target Items 2","Target Items 3"]
 targetvar = StringVar(value=targets)
-targetlbox = Listbox(controlframe, listvariable=targetvar, height=3).grid(column=4, row=2, rowspan=2, sticky=(N))
+targetlbox = Listbox(controlframe, listvariable=targetvar, height=3)
+targetlbox.grid(column=4, row=2, rowspan=2, sticky=(N))
 
 for child in controlframe.winfo_children(): 
     child.grid_configure(padx=5, pady=5)
